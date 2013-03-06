@@ -26,9 +26,9 @@ Example:
     Soundcloud::API.configure(mime: "application/json",
                               host: "https://api.soundcloud.com",
                               adapter: :net_http,
-                              client_id: "0123456789abcdef0123456789abcdef"
-                              client_secret = "0123456789abcdef0123456789abcdef"
-                              redirect_uri = "http://example.com/redirect_path"
+                              client_id: "0123456789abcdef0123456789abcdef",
+                              client_secret: "0123456789abcdef0123456789abcdef",
+                              redirect_uri: "http://example.com/redirect_path"
                               )
 
 All options are optional, where :mime and :host defaults are those specified
