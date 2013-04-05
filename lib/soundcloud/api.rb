@@ -60,7 +60,7 @@ module Soundcloud
           Faraday.new do |builder|
             builder.request :url_encoded
             builder.response :json, content_type: /\bjson$/
-            builder.adapter *Array(stubs ? [:test, stubs] : self.adapter)
+            builder.adapter(*Array(stubs ? [:test, stubs] : self.adapter))
           end.post("#{host}#{TOKEN_PATH}") do |request|
             request.body parameters
           end
@@ -96,7 +96,7 @@ module Soundcloud
       conn = self.class.connection(options)
       if stubs
         conn = conn.dup
-        conn.builder.handlers.delete_at -1
+        conn.builder.handlers.delete_at(-1)
         conn.builder.adapter :test, self.stubs
       end
       conn
