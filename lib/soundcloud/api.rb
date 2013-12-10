@@ -47,7 +47,7 @@ module Soundcloud
 
       def authorize_url
         raise Soundcloud::Error::Unauthorized, "Missing configuration" unless client_id and client_secret and redirect_uri
-        "https://#{AUTHORIZE_URL}?response_type=code&client_id=#{client_id}&redirect_uri=#{URI.escape redirect_uri}&scope=non-expiring"
+        "#{AUTHORIZE_URL}?response_type=code&client_id=#{client_id}&redirect_uri=#{URI.escape redirect_uri}&scope=non-expiring"
       end
 
       def exchange_temporary_credentials(code, stubs=nil)
